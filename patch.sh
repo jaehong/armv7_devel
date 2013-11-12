@@ -75,9 +75,16 @@ enable_spidev () {
 	${git} "${DIR}/patches/examples/0001-sama5-spidev-example.patch"
 }
 
+rt () {
+	echo "dir: rt"
+	${git} "${DIR}/patches/rt/0001-patch-3.12.0-rt1.patch"
+	${git} "${DIR}/patches/rt/0002-rt-fix-build-error.patch"
+}
+
 arm
 atmel_fixes
 atmel_SAMA5D3
+rt
 
 #enable_spidev
 

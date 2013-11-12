@@ -1,0 +1,26 @@
+From da7b0278f159ab674d16cbea512b54e140b43149 Mon Sep 17 00:00:00 2001
+From: Robert Nelson <robertcnelson@gmail.com>
+Date: Tue, 12 Nov 2013 11:25:40 -0600
+Subject: [PATCH 2/2] rt: fix build error
+
+Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
+---
+ drivers/clocksource/tcb_clksrc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/clocksource/tcb_clksrc.c b/drivers/clocksource/tcb_clksrc.c
+index c08ec1d..6a548bd 100644
+--- a/drivers/clocksource/tcb_clksrc.c
++++ b/drivers/clocksource/tcb_clksrc.c
+@@ -192,7 +192,7 @@ static void __init setup_clkevents(struct atmel_tc *tc, int divisor_idx)
+ 	clkevt.clk = t2_clk;
+ 	tc_irqaction.dev_id = &clkevt;
+ 
+-	timer_clock = clk32k_divisor_idx;
++	timer_clock = divisor_idx;
+ 
+ 	clkevt.clkevt.cpumask = cpumask_of(0);
+ 
+-- 
+1.8.4.2
+
